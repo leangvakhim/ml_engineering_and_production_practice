@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperparameter Tuning Visualization</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering equations -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            startup: {
+                typeset: false // We will trigger typesetting manually on step change
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Custom animations for smooth transitions */
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Grid pattern background for visual elements */
+        .bg-grid {
+            background-size: 20px 20px;
+            background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+                linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen font-sans text-gray-800 flex items-center justify-center p-4">
+
+    <!-- Main Container -->
+    <div
+        class="bg-white rounded-2xl shadow-xl w-full max-w-4xl overflow-hidden border border-gray-100 flex flex-col h-[800px] sm:h-[700px]">
+
+        <!-- Header -->
+        <div class="bg-white border-b border-gray-100 p-6 flex items-center justify-between z-10 shrink-0">
+            <div>
+                <h1 class="text-2xl font-bold text-indigo-900">Hyperparameter Tuning</h1>
+                <p class="text-sm text-gray-500 mt-1">Machine Learning Engineering & Production Practice</p>
+            </div>
+            <!-- Progress text -->
+            <div class="text-indigo-600 font-semibold bg-indigo-50 px-4 py-2 rounded-full text-sm shrink-0 ml-4"
+                id="progress-text">
+                Step 1 of 6
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="h-1 w-full bg-gray-100 shrink-0">
+            <div id="progress-bar" class="h-full bg-indigo-600 transition-all duration-500 ease-out w-1/6"></div>
+        </div>
+
+        <!-- Content Area -->
+        <!-- Fixed: Removed justify-center to prevent clipping, will handle centering with my-auto on the child -->
+        <div class="flex-grow p-6 sm:p-8 overflow-y-auto flex flex-col" id="step-container">
+            <!-- Dynamic content injected here via JS -->
+        </div>
+
+        <!-- Footer / Navigation -->
+        <div class="bg-white border-t border-gray-100 p-6 flex justify-between items-center z-10 shrink-0">
+            <button id="btn-prev" onclick="changeStep(-1)" disabled
+                class="px-6 py-2.5 rounded-lg font-medium transition-all duration-200 text-gray-600 bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back
+            </button>
+
+            <!-- Dots Indicator -->
+            <div class="flex space-x-2" id="dots-container">
+                <!-- Dots injected via JS -->
+            </div>
+
+            <button id="btn-next" onclick="changeStep(1)"
+                class="px-6 py-2.5 rounded-lg font-medium transition-all duration-200 text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-sm shadow-indigo-200">
+                Next
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="../js/hyperparameter_tuning.js"></script>
+</body>
+
+</html>
