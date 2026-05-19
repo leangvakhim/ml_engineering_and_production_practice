@@ -119,7 +119,7 @@ const steps = [
                         <ul class="space-y-3 text-slate-600 text-sm">
                             <li class="flex items-start gap-2">
                                 <svg class="w-5 h-5 text-blue-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <span><strong>Fits:</strong> Calculates the Mean ($\mu$) and Standard Deviation ($\sigma$) of the training data.</span>
+                                <span><strong>Fits:</strong> Calculates the Mean ($\\mu$) and Standard Deviation ($\\sigma$) of the training data.</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <svg class="w-5 h-5 text-blue-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
@@ -235,7 +235,7 @@ const steps = [
                                 <h4 class="font-bold text-slate-800">StandardScaler (<span class="text-blue-600">transform only</span>)</h4>
                                 <p class="text-slate-600 text-sm mb-2">The scaler uses the $\mu$ and $\sigma$ from the <em>training set</em> to scale this new data. It does <strong>not</strong> calculate a new mean.</p>
                                 <div class="bg-white p-2 text-xs font-mono text-slate-500 rounded border border-emerald-100">
-                                    z = (X_new - saved_mean) / saved_scale
+                                    z = ( $\{X}_{new}$ - saved_mean) / saved_scale
                                 </div>
                             </div>
                         </div>
